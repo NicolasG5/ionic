@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +8,12 @@ import { Router } from '@angular/router';
 })
 export class HomePage implements OnInit{
 
-  constructor() {}
+  usuario : any;
+
+  constructor(private router: Router,private activateRouter: ActivatedRoute) {}
 
   ngOnInit(){
-    
+    this.usuario = this.router.getCurrentNavigation().extras.state.usuario
   }
 
 }
